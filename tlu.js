@@ -1,4 +1,3 @@
-```
 // ==UserScript==
 // @name         Cheat TLU
 // @namespace    http://tampermonkey.net/
@@ -13,10 +12,10 @@
 (function () {
     'use strict';
     const chatboxElement = document.createElement('div');
-    chatboxElement[removed] = `
-    <div xss=removed id="cheat_chatbox">
-        &lt;iframe src="https://minnit.chat/itesttlu?embed&&nickname=" width='1000' height='500' style="border:none;"
-                allowTransparency="true"&gt;&lt;/iframe&gt;
+    chatboxElement.innerHTML = `
+    <div style="position: fixed; left: 0; bottom: 20px; background: white;" id="cheat_chatbox">
+        <iframe src="https://minnit.chat/itesttlu?embed&&nickname=" width='1000' height='500' style="border:none;"
+                allowTransparency="true"></iframe>
         <br>
     </div>`;
     document.body.appendChild(chatboxElement);
@@ -32,7 +31,7 @@
         }
     }
 
-    [removed] = function (e) {
+    document.onkeypress = function (e) {
         e = e || window.event;
         // use e.keyCode
         console.log(e);
@@ -43,10 +42,3 @@
     };
 
 })();
-
-
-
-https://www.tampermonkey.net/
-
-
-```
